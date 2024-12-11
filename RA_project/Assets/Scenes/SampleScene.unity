@@ -830,7 +830,7 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: mewth
+  mTrackableName: meowth
   mInitializedInEditor: 1
   mDataSetPath: 
   mAspectRatio: 1.3959184
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1039719031}
   mHiddenRoot: {fileID: 0}
-  mTargetName: mewth
+  mTargetName: meowth
   mDatasetName: 
   mCastedBehaviour: {fileID: 1039719031}
   mMeshFilter: {fileID: 0}
