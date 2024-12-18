@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class autoRotation : MonoBehaviour
 {
-    public float rotationSpeed = 90f; // Velocidad de rotaci車n (grados por segundo)
-    private bool isRotating = false; // Controla si el objeto est芍 rotando
-    private Quaternion initialRotation; // Rotaci車n inicial del objeto
+    public float rotationSpeed = 90f; // Velocidad de rotaci嚙踝蕭n (grados por segundo)
+    private bool isRotating = false; // Controla si el objeto est嚙踝蕭 rotando
+    private Quaternion initialRotation; 
 
     private void Start()
     {
-        // Guarda la rotaci車n inicial
         initialRotation = Quaternion.Euler(0, -180, 0);
         transform.rotation = initialRotation;
     }
@@ -19,7 +18,6 @@ public class autoRotation : MonoBehaviour
     {
         if (isRotating)
         {
-            // Realiza la rotaci車n continua en el eje Y
             transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
         }
     }
@@ -28,13 +26,13 @@ public class autoRotation : MonoBehaviour
     {
         if (isRotating)
         {
-            // Detiene la rotaci車n y vuelve a la posici車n inicial
+            // Detiene la rotacion y vuelve a la posicion inicial 
             isRotating = false;
-            transform.rotation = initialRotation;
+            transform.rotation = initialRotation;  
         }
         else
         {
-            // Inicia la rotaci車n
+            // Inicia
             isRotating = true;
         }
     }
