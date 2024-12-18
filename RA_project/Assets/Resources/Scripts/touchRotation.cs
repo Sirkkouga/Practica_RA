@@ -1,27 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class touchRotation : MonoBehaviour
+public class RotateOnTouch : MonoBehaviour
 {
-    public float rotationSpeed = 0.2f; // Velocidad de rotaci車n
+    private bool isBeingTouched = false;
+    private Vector2 previousTouchPosition;
 
-    private void Update()
+    void Update()
     {
-        if (Input.touchCount == 1) // Verifica si hay un toque en pantalla
+        // Detecta si hay un toque en la pantalla
+        if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Moved) // Si el dedo se est芍 moviendo
+            // Comprobamos si el toque inicial est芍 sobre este objeto
+            if (touch.phase == TouchPhase.Began)
             {
-                // Ajusta la rotaci車n
-                float rotationX = touch.deltaPosition.y * rotationSpeed;
-                float rotationY = -touch.deltaPosition.x * rotationSpeed;
+                if (IsTouchingObject(touch))
+                {
+                    isBeingTouched = true;
+                    previousTouchPosition = touch.position;
+                }
+            }
+            else if (touch.phase == TouchPhase.Moved && isBeingTouched)
+            {
+                // Calcula la rotaci車n basada en el movimiento del dedo
+                Vector2 deltaPosition = touch.deltaPosition;
+                float rotationSpeed = 0.2f; // Ajusta esta velocidad seg迆n sea necesario
 
-                // Aplica la rotaci車n al objeto (ajusta los ejes seg迆n necesites)
-                transform.Rotate(Vector3.up, rotationY, Space.World);   // Rotaci車n en el eje Y
-                transform.Rotate(Vector3.right, rotationX, Space.World); // Rotaci車n en el eje X
+                // Aplica rotaci車n en el eje Y (horizontal) y X (vertical)
+                transform.Rotate(Vector3.up, -deltaPosition.x * rotationSpeed, Space.World);
+                transform.Rotate(Vector3.right, deltaPosition.y * rotationSpeed, Space.World);
+            }
+            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            {
+                isBeingTouched = false;
             }
         }
+    }
+
+    private bool IsTouchingObject(Touch touch)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(touch.position);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            return hit.transform == transform;
+        }
+        return false;
     }
 }
