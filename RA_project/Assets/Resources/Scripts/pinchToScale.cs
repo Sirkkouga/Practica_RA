@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class pinchToScale : MonoBehaviour
+public class PinchToScale : MonoBehaviour
 {
-    public float minScaleFactor = 0.5f;   
-    public float maxScaleFactor = 3.0f;
+    public float minScaleFactor = 0.5f;   // Escala m¨ªnima
+    public float maxScaleFactor = 3.0f;  // Escala m¨¢xima
 
     private float initialDistance;
     private Vector3 initialScale;
@@ -16,12 +16,18 @@ public class pinchToScale : MonoBehaviour
             Touch touch1 = Input.GetTouch(0);
             Touch touch2 = Input.GetTouch(1);
 
-            if ((touch1.phase == TouchPhase.Began && touch2.phase == TouchPhase.Began) && !isPinching)
+            if ((touch1.phase == TouchPhase.Began || touch2.phase == TouchPhase.Began) && !isPinching)
             {
-                isPinching = true;
+                // Detectar si este modelo fue tocado con un Raycast
+                Ray ray = Camera.main.ScreenPointToRay(touch1.position);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
+                {
+                    isPinching = true;
 
-                initialDistance = Vector2.Distance(touch1.position, touch2.position);
-                initialScale = transform.localScale;
+                    initialDistance = Vector2.Distance(touch1.position, touch2.position);
+                    initialScale = transform.localScale;
+                }
             }
             else if (isPinching && (touch1.phase == TouchPhase.Moved || touch2.phase == TouchPhase.Moved))
             {
@@ -30,16 +36,14 @@ public class pinchToScale : MonoBehaviour
                 if (initialDistance > 1f)
                 {
                     float ratio = currentDistance / initialDistance;
-                    Vector3 newScale = initialScale * ratio;
-
                     float factor = Mathf.Clamp(ratio, minScaleFactor, maxScaleFactor);
+                    Vector3 newScale = initialScale * factor;
 
-                    newScale = initialScale * factor;
                     transform.localScale = newScale;
                 }
             }
 
-            // Si uno de los dedos se suelta acabamos pinch
+            // Finalizar el pinch si uno de los dedos se suelta
             if (touch1.phase == TouchPhase.Ended || touch2.phase == TouchPhase.Ended ||
                 touch1.phase == TouchPhase.Canceled || touch2.phase == TouchPhase.Canceled)
             {
@@ -48,7 +52,7 @@ public class pinchToScale : MonoBehaviour
         }
         else
         {
-            // Si en cualquier momento deja de haber 2 toques, cerramos el pinch
+            // Finalizar el pinch si no hay dos dedos en la pantalla
             isPinching = false;
         }
     }
