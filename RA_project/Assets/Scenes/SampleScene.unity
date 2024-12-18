@@ -549,7 +549,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textObjects: []
   toggleButton: {fileID: 405278812}
-  animator: {fileID: 0}
 --- !u!1001 &309372569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -718,7 +717,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: pikachu
+  m_text: "\xA1Pikachu es mi fiel compa\xF1ero desde que comenc\xE9 mi viaje en Pueblo
+    Paleta! \nAl principio no nos llev\xE1bamos bien, pero con el tiempo formamos
+    un v\xEDnculo inquebrantable. Juntos hemos enfrentado desaf\xEDos incre\xEDbles.
+    Con su \"Pika Pika\" y su poderoso Impactrueno, Pikachu siempre est\xE1 a mi
+    lado, listo para cualquier aventura."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -752,7 +755,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 16
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1321,7 +1324,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: dragonite
+  m_text: "Dragonite es un poderoso drag\xF3n que captur\xE9 durante mis viajes.
+    Con su velocidad y fuerza, siempre ha sido un aliado clave en mis batallas. Es
+    un drag\xF3n noble y fuerte Aunque puede parecer intimidante, Dragonite tiene
+    un coraz\xF3n bondadoso y siempre est\xE1 listo para ayudar a sus amigos. Desde
+    que se uni\xF3 a mi equipo, ha sido un aliado incre\xEDble en muchas de mis batallas
+    m\xE1s dif\xEDciles.\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1654,7 +1662,6 @@ MonoBehaviour:
   - {fileID: 344904818}
   - {fileID: 536335123}
   toggleButton: {fileID: 405278812}
-  animator: {fileID: 0}
 --- !u!1 &641688384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,7 +1719,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: texto de saludar y que va a presentar los pokemons...
+  m_text: "\xA1Hola! Soy Ash Ketchum, un entrenador Pok\xE9mon de Pueblo Paleta.\nMi
+    meta es ser un maestro pok\xE9mon haci\xE9ndome amigo de todos ellos. Los Pok\xE9mon
+    son criaturas fascinantes, acomp\xE1\xF1ame a conocer a un par."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2026,7 +2035,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: meowth
+  m_text: "\xA1Meowth es un Pok\xE9mon muy peculiar! Este Meowth acompa\xF1a al Team
+    Rocket en sus interminables intentos por atrapar a mi Pikachu, siempre con sus
+    planes disparatados. Su habilidad para hablar y su ingenio lo hacen \xFAnico,
+    aunque sus travesuras suelen meterse en problemas. A pesar de todo, es un rival
+    que no se rinde f\xE1cilmente.\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2060,7 +2073,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 16
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
